@@ -1,0 +1,259 @@
+pdcp_feeder_main.d: ../pdcp_feeder_main.c \
+ /home/user/alam_development/pdcp_feeder/include/types.h \
+ /home/user/alam_development/pdcp_feeder/include/list.h \
+ /home/user/alam_development/pdcp_feeder/include/mem_block.h \
+ /home/user/alam_development/pdcp_feeder/include/list.h \
+ /home/user/alam_development/pdcp_feeder/include/pdcp.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/DRB-ToAddMod.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/asn_application.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/asn_system.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/asn_codecs.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/constr_TYPE.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/ber_tlv_length.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/ber_tlv_tag.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/ber_decoder.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/der_encoder.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/xer_decoder.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/xer_encoder.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/per_decoder.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/per_support.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/asn_system.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/per_encoder.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/constraints.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/NativeInteger.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/INTEGER.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/asn_codecs_prim.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/DRB-Identity.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/asn_internal.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/asn_application.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/constr_SEQUENCE.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/PDCP-Config.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/NativeEnumerated.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/BOOLEAN.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/NULL.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/constr_CHOICE.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/RLC-Config.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/UL-AM-RLC.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/T-PollRetransmit.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/PollPDU.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/PollByte.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/DL-AM-RLC.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/T-Reordering.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/T-StatusProhibit.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/UL-UM-RLC.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/SN-FieldLength.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/DL-UM-RLC.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/LogicalChannelConfig.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/DRB-ToAddModList.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/asn_SEQUENCE_OF.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/asn_SET_OF.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/constr_SEQUENCE_OF.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/constr_SET_OF.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/DRB-ToAddMod.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/SRB-ToAddMod.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/SRB-ToAddModList.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/SRB-ToAddMod.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/DRB-ToReleaseList.h \
+ /home/user/alam_development/pdcp_feeder/include/impl_defs_top.h \
+ /home/user/alam_development/pdcp_feeder/include/types.h \
+ /home/user/alam_development/pdcp_feeder/include/phy_lte_transport_defs.h \
+ /home/user/alam_development/pdcp_feeder/include/platform_types.h \
+ /home/user/alam_development/pdcp_feeder/include/impl_defs_lte.h \
+ /home/user/alam_development/pdcp_feeder/include/spec_defs_top.h \
+ /home/user/alam_development/pdcp_feeder/include/uci.h \
+ /home/user/alam_development/pdcp_feeder/include/hashtable.h \
+ /home/user/alam_development/pdcp_feeder/include/time_meas.h \
+ /home/user/alam_development/pdcp_feeder/include/PDCP_v10.1.0/collec_dec_pdcp.h \
+ /home/user/alam_development/pdcp_feeder/include/platform_constants.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/asn1_constants.h \
+ /home/user/alam_development/pdcp_feeder/include/log.h \
+ /home/user/alam_development/pdcp_feeder/include/log_if.h \
+ /home/user/alam_development/pdcp_feeder/include/log.h \
+ /home/user/alam_development/common_header/socket_msg.h \
+ /home/user/alam_development/pdcp_feeder/include/platform_types.h \
+ /home/user/alam_development/pdcp_feeder/include/mem_block.h \
+ ../pdcp_msg_handler.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/PMCH-InfoList-r9.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/PMCH-Info-r9.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/PMCH-Config-r9.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/MBMS-SessionInfoList-r9.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/MBMS-SessionInfo-r9.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/TMGI-r9.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/OCTET_STRING.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/PLMN-Identity.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/MNC.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/MCC-MNC-Digit.h \
+ /home/user/alam_development/pdcp_feeder/include/Rel10/MCC.h \
+ ../rohc_proc.h
+
+/home/user/alam_development/pdcp_feeder/include/types.h:
+
+/home/user/alam_development/pdcp_feeder/include/list.h:
+
+/home/user/alam_development/pdcp_feeder/include/mem_block.h:
+
+/home/user/alam_development/pdcp_feeder/include/list.h:
+
+/home/user/alam_development/pdcp_feeder/include/pdcp.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/DRB-ToAddMod.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/asn_application.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/asn_system.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/asn_codecs.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/constr_TYPE.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/ber_tlv_length.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/ber_tlv_tag.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/ber_decoder.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/der_encoder.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/xer_decoder.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/xer_encoder.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/per_decoder.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/per_support.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/asn_system.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/per_encoder.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/constraints.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/NativeInteger.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/INTEGER.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/asn_codecs_prim.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/DRB-Identity.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/asn_internal.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/asn_application.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/constr_SEQUENCE.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/PDCP-Config.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/NativeEnumerated.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/BOOLEAN.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/NULL.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/constr_CHOICE.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/RLC-Config.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/UL-AM-RLC.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/T-PollRetransmit.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/PollPDU.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/PollByte.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/DL-AM-RLC.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/T-Reordering.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/T-StatusProhibit.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/UL-UM-RLC.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/SN-FieldLength.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/DL-UM-RLC.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/LogicalChannelConfig.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/DRB-ToAddModList.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/asn_SEQUENCE_OF.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/asn_SET_OF.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/constr_SEQUENCE_OF.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/constr_SET_OF.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/DRB-ToAddMod.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/SRB-ToAddMod.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/SRB-ToAddModList.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/SRB-ToAddMod.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/DRB-ToReleaseList.h:
+
+/home/user/alam_development/pdcp_feeder/include/impl_defs_top.h:
+
+/home/user/alam_development/pdcp_feeder/include/types.h:
+
+/home/user/alam_development/pdcp_feeder/include/phy_lte_transport_defs.h:
+
+/home/user/alam_development/pdcp_feeder/include/platform_types.h:
+
+/home/user/alam_development/pdcp_feeder/include/impl_defs_lte.h:
+
+/home/user/alam_development/pdcp_feeder/include/spec_defs_top.h:
+
+/home/user/alam_development/pdcp_feeder/include/uci.h:
+
+/home/user/alam_development/pdcp_feeder/include/hashtable.h:
+
+/home/user/alam_development/pdcp_feeder/include/time_meas.h:
+
+/home/user/alam_development/pdcp_feeder/include/PDCP_v10.1.0/collec_dec_pdcp.h:
+
+/home/user/alam_development/pdcp_feeder/include/platform_constants.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/asn1_constants.h:
+
+/home/user/alam_development/pdcp_feeder/include/log.h:
+
+/home/user/alam_development/pdcp_feeder/include/log_if.h:
+
+/home/user/alam_development/pdcp_feeder/include/log.h:
+
+/home/user/alam_development/common_header/socket_msg.h:
+
+/home/user/alam_development/pdcp_feeder/include/platform_types.h:
+
+/home/user/alam_development/pdcp_feeder/include/mem_block.h:
+
+../pdcp_msg_handler.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/PMCH-InfoList-r9.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/PMCH-Info-r9.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/PMCH-Config-r9.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/MBMS-SessionInfoList-r9.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/MBMS-SessionInfo-r9.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/TMGI-r9.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/OCTET_STRING.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/PLMN-Identity.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/MNC.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/MCC-MNC-Digit.h:
+
+/home/user/alam_development/pdcp_feeder/include/Rel10/MCC.h:
+
+../rohc_proc.h:
