@@ -101,7 +101,7 @@
 #define NB_RB_MBMS_MAX (maxSessionPerPMCH*maxServiceCount)
 #else
 // Do not allocate unused memory
-#define NB_RB_MBMS_MAX 4
+#define NB_RB_MBMS_MAX 1500
 #endif
 #define NB_RAB_MAX     maxDRB       /* was 8, now 11 */
 #define RAB_SHIFT1     9
