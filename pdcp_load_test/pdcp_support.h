@@ -8,9 +8,12 @@
 #ifndef PDCP_SUPPORT_H_
 #define PDCP_SUPPORT_H_
 
+#define MODULE_ID 101010
 #define TOTAL_PDCP_INSTANCE      2
 #define SEC_TO_NANO_SECONDS  1000000000
 #define NANO_TO_MICRO  0.001
+
+
 
 //This macro enable all the measurements and initialize prepare reports
 #define create_report
@@ -98,6 +101,8 @@ void create_pdcp_report ();
 void update_connect_status (int fd);
 void process_start_time_record (struct timespec start_time);
 void mips_report (int totalPktNo, long long int totalPktSize);
+
+
 
 
 

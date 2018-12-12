@@ -58,7 +58,7 @@ int measurem_intvall_us = 2;
 
 
 // Socket and socket function related variables
-struct sockaddr_in socketAddrPDCP;
+struct sockaddr_in socketAddrPDCP, socketCldMan;
 struct timeval timeout;
 //    struct timespec timeout;
 
@@ -221,6 +221,37 @@ void sigint_handler(int sig)
     getchar(); // Get new line character
 }
 
+//Initializing all the parameters for PDCP connection
+void set_txt_inp (int countLine, char *val)
+{
+	INT32 portno_CldMng;
+
+	switch (countLine)
+	{
+	case 1:
+		printf("PDCP connection parameter reading started\n\n");
+		break;
+
+	case 2:
+		socketCldMan.sin_addr.s_addr = inet_addr(val);
+		printf ("PDCP IP: %s", val);
+		break;
+
+	case 3:
+		portno_CldMng = atoi(val);
+		socketCldMan.sin_port = htons(portno_CldMng);
+		printf ("PDCP Port: %s", val);
+		break;
+
+	 default:
+	 {
+		 printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		 printf("Unknown msg received from PDCP\n\n\n\n");
+		 printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+	 }
+	 break;
+	}
+}
 
 int main (INT32 argc, INT8 **argv )
 {
@@ -230,6 +261,77 @@ int main (INT32 argc, INT8 **argv )
 	int cpu_core = atoi(argv[2]);
 	SetCore(cpu_core);
 
+    // Initialize or filling up the socket structure of PDCP
+	bzero((char *) &socketCldMan, sizeof(socketCldMan));
+	socketCldMan.sin_family = AF_INET;
+
+	FILE* lrmConfFile = 0;
+	lrmConfFile = fopen("pdcp_sock_file.conf","r");
+
+	int lineCount = 0;
+	bool file_param;
+	if (lrmConfFile == 0)
+	{
+		printf("Configuration file not found!!! \n");
+		printf("PDCP module connection failed!!! \n\n");
+		exit (EXIT_FAILURE);
+	} else
+	{
+		printf("Configuration file found. Now analyzing the inputs \n");
+		char line[80];
+		while(fgets(line, sizeof(line),lrmConfFile)!=NULL)///something in the file
+		{
+			if (line[0] == 'S')
+			{
+				file_param = true;
+			}
+
+			if (file_param == true)
+			{
+				lineCount++;
+				set_txt_inp (lineCount, &line[0]);
+			}
+		}
+	}
+
+	// ---------------------------------------------------------------------------
+    // Create Socket for Cloud Manager communication
+	// ---------------------------------------------------------------------------
+
+    gConnectSockFd = socket(AF_INET, SOCK_STREAM, 0);
+
+    if (gConnectSockFd < 0)
+	{
+	  perror("ERROR opening PDCP'socket");
+	  printf("OAI module start failed!!! \n");
+	  exit (EXIT_FAILURE);
+	}
+
+	fflush(stdout);
+
+	// Feeder try to connect to PDCP
+	int val = connect(gConnectSockFd,(struct sockaddr *) &socketCldMan,sizeof(socketCldMan));
+	if ( val == SYSCALLFAIL)
+	{
+		perror("connect");
+		printf("Check if Cloud manager is available for connection \n");
+		printf("PDCP module start failed!!! \n");
+		exit(EXIT_FAILURE);
+	} else
+		printf ("Successful connection from PDCP to cloud manager established\n");
+
+	//Allow socket descriptor to be reusable and non blocking
+	val = setsockopt(gConnectSockFd, SOL_SOCKET,  SO_REUSEADDR,	(char *)&reuseaddr, sizeof(reuseaddr));
+
+	if (val < 0)
+		{
+		  perror("setsockopt() failed");
+		  close(gConnectSockFd);
+		  printf("OAI module start failed!!! \n");
+		  exit(EXIT_FAILURE);
+		}
+
+	sockSetNonBlocking(gConnectSockFd);
 	//--------------------------------------------------------------
 	//create socket for accepting incoming communication
 	//--------------------------------------------------------------
@@ -400,6 +502,8 @@ int main (INT32 argc, INT8 **argv )
 	  struct timespec timePerPacket_start, timePerPacket_end, timePerProc_start, timePerProc_end;
 	  double timePerPacket, timePerProc;
 	  bool start_report = false;
+
+		cld_reg (gConnectSockFd);
 	while (TRUE)
 	{
 		int measurem_intvall_s  = 0;
@@ -450,6 +554,14 @@ int main (INT32 argc, INT8 **argv )
 			process_start_time_record (timePerProc_start);
 #endif
 
+			/*----------------------------------------
+			 * Msg recieve from Cloud Manager
+			 */
+
+		if (FD_ISSET(gConnectSockFd,&readFds))
+		{
+			cld_MsgReceive(gConnectSockFd);
+		}
 		 INT32 i_fd, noBuffer, noConect = 0;
 		for (i_fd = firstSockFD; i_fd <= fdmax; i_fd++)
 		{

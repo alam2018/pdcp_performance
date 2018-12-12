@@ -53,7 +53,7 @@ extern uint16_t           pdcp_pdu_size;
  */
 
 static VOID MsgHandler(UINT32 messageId, INT32 sockFd);
-static VOID MsgSend(int sendFD);
+
 
 
 
@@ -187,13 +187,11 @@ static VOID MsgSend(int sendFD)
 
 }
 
-
-
 /*!----------------------------------------------------------------------------
 *Construction of buffer for sending message
 *
 ------------------------------------------------------------------------------*/
-static VOID MsgInsertFunc (
+ static VOID MsgInsertFunc (
                               UINT32 MsgId ,
                               UINT32 MsgSize,
                               VOID* MsgData,
@@ -225,10 +223,13 @@ static VOID MsgInsertFunc (
 }
 
 
+
+
 //Message received from UP. Both Control message and scheduler message is handled here
 bool sckClose = false;
 EXT_MSG_T ExtRecMsg;
-const UINT32	sockExtHeaderSize = sizeof(ExtRecMsg.msgId) + sizeof (ExtRecMsg.msgSize);// implicitly calculating header size
+UINT32	sockExtHeaderSize = sizeof(ExtRecMsg.msgId) + sizeof (ExtRecMsg.msgSize);// implicitly calculating header size
+
 int bufferCount;
 
 int  delCon(int nSockFd, int Addr)
@@ -949,4 +950,16 @@ int mac_eNB_get_rrc_status_send(const module_id_t   module_idP, const rnti_t  rn
 void execute_msgHandler (UINT32 messageId, INT32 sockFd)
 {
 	MsgHandler(messageId, sockFd);
+}
+
+void execute_MsgInsertFunc (UINT32 MsgId, UINT32 MsgSize, VOID* MsgData)
+{
+	temppdcpSendBuffer = pdcpSendBuffer;
+    memset(pdcpSendBuffer,0, BUFFER_SIZE);
+	MsgInsertFunc (MsgId, MsgSize, MsgData, &temppdcpSendBuffer);
+}
+
+void execute_MsgSend(int sendFD)
+{
+	MsgSend(sendFD);
 }

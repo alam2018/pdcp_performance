@@ -56,7 +56,7 @@ include/PDCP_v10.1.0/pdcp.d: ../include/PDCP_v10.1.0/pdcp.c \
  /home/user/alam_development/pdcp_load_test/include/Rel10/SRB-ToAddMod.h \
  /home/user/alam_development/pdcp_load_test/include/Rel10/DRB-ToReleaseList.h \
  /home/user/alam_development/pdcp_load_test/include/impl_defs_top.h \
- /home/user/alam_development/pdcp_load_test/include/types.h \
+ /home/user/alam_development/common_header/types.h \
  /home/user/alam_development/pdcp_load_test/include/phy_lte_transport_defs.h \
  /home/user/alam_development/pdcp_load_test/include/platform_types.h \
  /home/user/alam_development/pdcp_load_test/include/impl_defs_lte.h \
@@ -205,7 +205,7 @@ include/PDCP_v10.1.0/pdcp.d: ../include/PDCP_v10.1.0/pdcp.c \
  /home/user/alam_development/pdcp_load_test/include/Rel10/PRACH-ConfigSIB.h \
  /home/user/alam_development/pdcp_load_test/include/osa_defs.h \
  /home/user/alam_development/common_header/socket_msg.h \
- /home/user/alam_development/pdcp_load_test/include/types.h \
+ /home/user/alam_development/common_header/types.h \
  /home/user/alam_development/pdcp_load_test/include/mem_block.h \
  /home/user/alam_development/pdcp_load_test/include/defs.h \
  /home/user/alam_development/pdcp_load_test/include/mac_defs.h \
@@ -328,7 +328,7 @@ include/PDCP_v10.1.0/pdcp.d: ../include/PDCP_v10.1.0/pdcp.c \
 
 /home/user/alam_development/pdcp_load_test/include/impl_defs_top.h:
 
-/home/user/alam_development/pdcp_load_test/include/types.h:
+/home/user/alam_development/common_header/types.h:
 
 /home/user/alam_development/pdcp_load_test/include/phy_lte_transport_defs.h:
 
@@ -626,7 +626,7 @@ include/PDCP_v10.1.0/pdcp.d: ../include/PDCP_v10.1.0/pdcp.c \
 
 /home/user/alam_development/common_header/socket_msg.h:
 
-/home/user/alam_development/pdcp_load_test/include/types.h:
+/home/user/alam_development/common_header/types.h:
 
 /home/user/alam_development/pdcp_load_test/include/mem_block.h:
 

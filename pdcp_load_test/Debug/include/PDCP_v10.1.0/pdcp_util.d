@@ -58,7 +58,7 @@ include/PDCP_v10.1.0/pdcp_util.d: ../include/PDCP_v10.1.0/pdcp_util.c \
  /home/user/alam_development/pdcp_load_test/include/Rel10/SRB-ToAddMod.h \
  /home/user/alam_development/pdcp_load_test/include/Rel10/DRB-ToReleaseList.h \
  /home/user/alam_development/pdcp_load_test/include/impl_defs_top.h \
- /home/user/alam_development/pdcp_load_test/include/types.h \
+ /home/user/alam_development/common_header/types.h \
  /home/user/alam_development/pdcp_load_test/include/phy_lte_transport_defs.h \
  /home/user/alam_development/pdcp_load_test/include/platform_types.h \
  /home/user/alam_development/pdcp_load_test/include/impl_defs_lte.h \
@@ -188,7 +188,7 @@ include/PDCP_v10.1.0/pdcp_util.d: ../include/PDCP_v10.1.0/pdcp_util.c \
 
 /home/user/alam_development/pdcp_load_test/include/impl_defs_top.h:
 
-/home/user/alam_development/pdcp_load_test/include/types.h:
+/home/user/alam_development/common_header/types.h:
 
 /home/user/alam_development/pdcp_load_test/include/phy_lte_transport_defs.h:
 

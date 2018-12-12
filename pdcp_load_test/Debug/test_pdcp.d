@@ -172,7 +172,7 @@ test_pdcp.d: ../test_pdcp.c \
  /home/user/alam_development/pdcp_load_test/include/phy_lte_transport_defs.h \
  /home/user/alam_development/pdcp_load_test/include/platform_types.h \
  /home/user/alam_development/pdcp_load_test/include/impl_defs_lte.h \
- /home/user/alam_development/pdcp_load_test/include/types.h \
+ /home/user/alam_development/common_header/types.h \
  /home/user/alam_development/pdcp_load_test/include/spec_defs_top.h \
  /home/user/alam_development/pdcp_load_test/include/uci.h \
  /home/user/alam_development/pdcp_load_test/include/list.h \
@@ -545,7 +545,7 @@ test_pdcp.d: ../test_pdcp.c \
 
 /home/user/alam_development/pdcp_load_test/include/impl_defs_lte.h:
 
-/home/user/alam_development/pdcp_load_test/include/types.h:
+/home/user/alam_development/common_header/types.h:
 
 /home/user/alam_development/pdcp_load_test/include/spec_defs_top.h:
 
