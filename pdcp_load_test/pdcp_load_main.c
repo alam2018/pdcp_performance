@@ -36,6 +36,9 @@
 #include "log.h"
 #include "pdcp_support.h"
 
+#include "downlink_pdcp_meas.h"
+#include "uplink_pdcp_meas.h"
+
 //#include "collec_dec_pdcp.h"
 #include "socket_msg.h"
 
@@ -253,6 +256,8 @@ void set_txt_inp (int countLine, char *val)
 	}
 }
 
+double downlink_mips, uplink_mips;
+double downlink_bw, uplink_bw;
 int main (INT32 argc, INT8 **argv )
 {
 	bool chkFirstConn = true;
@@ -269,7 +274,7 @@ int main (INT32 argc, INT8 **argv )
 	lrmConfFile = fopen("pdcp_sock_file.conf","r");
 
 	int lineCount = 0;
-	bool file_param;
+	bool file_param=false;
 	if (lrmConfFile == 0)
 	{
 		printf("Configuration file not found!!! \n");
@@ -502,7 +507,6 @@ int main (INT32 argc, INT8 **argv )
 	  struct timespec timePerPacket_start, timePerPacket_end, timePerProc_start, timePerProc_end;
 	  double timePerPacket, timePerProc;
 	  bool start_report = false;
-
 		cld_reg (gConnectSockFd);
 	while (TRUE)
 	{
@@ -567,7 +571,7 @@ int main (INT32 argc, INT8 **argv )
 		{
 			for (noBuffer = 0; noBuffer <MAX_BUFFER_REC_WINDOW; noBuffer++)
 			{
-				if (FD_ISSET(i_fd,&readFds))
+				if (FD_ISSET(i_fd,&readFds) && i_fd != gConnectSockFd)
 					{
 						start_report = true;
 						MsgReceive(i_fd, noBuffer);
@@ -576,6 +580,48 @@ int main (INT32 argc, INT8 **argv )
 			}
 
 		}
+//		PDCP_DATA_REQ_FUNC_T 			*tempPDCPDownMsg;
+//		void 			*tempPDCPDownMsg;
+//		PDCP_DATA_IND_T 				*tempPDCPUpMsg;
+		bool rohc_avail;
+		int packet_size = 0;
+		downlink_mips = 0;
+		uplink_mips = 0;
+		downlink_bw = 0;
+		uplink_bw = 0;
+
+		  for (noConect = 0; noConect < MAX_NO_CONN_TO_PDCP; noConect++)
+		  {
+			for (noBuffer = 0; noBuffer <MAX_BUFFER_REC_WINDOW; noBuffer++)
+			{
+				if (activeRequests[noConect].sockBufferDatabase[noBuffer].isBufferUsed == true)
+				{
+					if (activeRequests[noConect].msgID == PDCP_DATA_REQ_FUNC)
+					{
+						//Downlink CPU consumption calculation
+#ifdef ROHC_COMPRESSION
+						rohc_avail = true;
+#else
+						rohc_avail = false;
+#endif
+						packet_size = (int) (((PDCP_DATA_REQ_FUNC_T*)activeRequests[noConect].sockBufferDatabase[noBuffer].pData)->sdu_buffer_size);
+						downlink_mips += (int) calc_downlink_mips (packet_size, rohc_avail);
+						downlink_bw += calc_downlink_BW (packet_size, rohc_avail);
+					} else if (activeRequests[noConect].msgID == PDCP_DATA_IND)
+					{
+						//Uplink CPU consumption calculation
+#ifdef ROHC_COMPRESSION
+						rohc_avail = true;
+#else
+						rohc_avail = false;
+#endif
+						packet_size = (int) (((PDCP_DATA_IND_T*)activeRequests[noConect].sockBufferDatabase[noBuffer].pData)->sdu_buffer_size);
+						uplink_mips += calc_uplink_mips (packet_size, rohc_avail);
+						uplink_bw += calc_uplink_bw (packet_size, rohc_avail);
+					}
+				}
+			}
+		  }
 
 		int noRecPkt = 0;
 		total_processed_bytes = 0;
